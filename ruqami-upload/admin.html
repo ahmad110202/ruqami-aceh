@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin RUQAMI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <style>
+      :root {
+        --green-deep: #00563f;
+        --green-soft: #eaf7f1;
+        --gold: #ddaa24;
+        --cream: #fff9e8;
+        --text: #1d2b27;
+        --muted: #66736f;
+        --border: rgba(0, 86, 63, 0.12);
+        --panel: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #fdfbf5, #fff7e7);
+        color: var(--text);
+      }
+
+      a { text-decoration: none; }
+      input, button { font: inherit; }
+
+      .container {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        background: linear-gradient(135deg, var(--green-deep), #0a694d);
+        color: white;
+        padding: 1rem 0;
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: white;
+      }
+
+      .brand-mark {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--gold), #f7dd89);
+        display: grid;
+        place-items: center;
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .brand strong {
+        display: block;
+        letter-spacing: 0.08em;
+      }
+
+      .admin-action {
+        background: linear-gradient(135deg, var(--gold), #f2cf69);
+        color: var(--green-deep);
+        font-weight: 700;
+        border: none;
+        border-radius: 999px;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .auth-wrap {
+        min-height: 80vh;
+        display: grid;
+        place-items: center;
+        padding: 3rem 0;
+      }
+
+      .login-card, .dashboard {
+        background: rgba(255,255,255,0.9);
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        box-shadow: 0 20px 35px rgba(0, 86, 63, 0.08);
+      }
+
+      .login-card {
+        width: min(500px, 100%);
+        padding: 2rem;
+      }
+
+      .login-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .login-header .icon {
+        width: 76px;
+        height: 76px;
+        margin: 0 auto 1rem;
+        background: linear-gradient(135deg, rgba(0,86,63,0.12), rgba(221,170,36,0.15));
+        border-radius: 24px;
+        display: grid;
+        place-items: center;
+        color: var(--green-deep);
+        font-size: 2rem;
+      }
+
+      .login-header h1 {
+        margin: 0;
+        color: var(--green-deep);
+      }
+
+      .login-header p {
+        margin: 0.4rem 0 0;
+        color: var(--muted);
+      }
+
+      .form-group {
+        display: grid;
+        gap: 0.45rem;
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        font-weight: 600;
+        color: var(--green-deep);
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid rgba(0, 86, 63, 0.15);
+        border-radius: 14px;
+        padding: 0.9rem 1rem;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: var(--green-deep);
+        box-shadow: 0 0 0 3px rgba(0, 86, 63, 0.1);
+      }
+
+      .primary-btn {
+        width: 100%;
+        border: none;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--gold), #f3cf67);
+        font-weight: 700;
+        color: var(--green-deep);
+        padding: 0.95rem 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .secondary-btn {
+        border: none;
+        border-radius: 999px;
+        background: var(--green-deep);
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1rem;
+      }
+
+      .delete-btn {
+        border: 1px solid rgba(198, 59, 59, 0.2);
+        border-radius: 999px;
+        background: #fff1f1;
+        color: #b42323;
+        font-weight: 600;
+        padding: 0.5rem 0.75rem;
+        cursor: pointer;
+      }
+
+      .delete-btn:hover {
+        background: #ffe3e3;
+      }
+
+      .login-message {
+        min-height: 1.2rem;
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+        color: #c63b3b;
+      }
+
+      .dashboard {
+        padding: 1.5rem;
+        margin: 2rem 0 3rem;
+        display: none;
+      }
+
+      .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      .dashboard-header h2 {
+        margin: 0;
+        color: var(--green-deep);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .stat-card {
+        background: linear-gradient(135deg, rgba(0, 86, 63, 0.04), rgba(221, 170, 36, 0.05));
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1rem;
+      }
+
+      .stat-label {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .stat-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--green-deep);
+        margin-top: 0.4rem;
+      }
+
+      .search-box {
+        width: min(100%, 460px);
+        margin-bottom: 1rem;
+      }
+
+      .search-box label {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: var(--green-deep);
+        font-weight: 600;
+      }
+
+      .search-box input {
+        width: 100%;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      th, td {
+        padding: 0.9rem 0.8rem;
+        border-bottom: 1px solid rgba(0, 86, 63, 0.08);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: rgba(0, 86, 63, 0.04);
+        color: var(--green-deep);
+        font-weight: 700;
+      }
+
+      tbody tr:hover {
+        background: rgba(0, 86, 63, 0.02);
+      }
+
+      .status-badge {
+        display: inline-flex;
+        padding: 0.38rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        background: rgba(16,185,129,0.1);
+        color: #0e7c59;
+      }
+
+      .detail-toggle {
+        color: var(--green-deep);
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .detail-list {
+        min-width: 240px;
+        margin: 0.7rem 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.35rem 1rem;
+        font-size: 0.82rem;
+      }
+
+      .detail-item {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.3rem;
+        min-width: 0;
+      }
+
+      .detail-list dt {
+        color: var(--muted);
+        flex: 0 0 auto;
+      }
+
+      .detail-list dt::after {
+        content: ":";
+      }
+
+      .detail-list dd {
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .files-list {
+        flex: 0 0 100%;
+        margin-top: 0.5rem;
+        border-top: 1px solid var(--border);
+        padding-top: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+      }
+
+      .files-list > strong {
+        grid-column: 1 / -1;
+        color: var(--green-deep);
+        font-size: 0.82rem;
+      }
+
+      .file-item {
+        display: grid;
+        gap: 0.45rem;
+        min-width: 0;
+        padding: 0.55rem 0.65rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fbfdfb;
+        font-size: 0.78rem;
+      }
+
+      .file-name {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .file-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .file-status.uploaded {
+        color: #0e7c59;
+      }
+
+      .file-status {
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .file-actions {
+        display: flex;
+        gap: 0.35rem;
+      }
+
+      .file-action {
+        border: 1px solid rgba(0, 86, 63, 0.18);
+        border-radius: 999px;
+        padding: 0.22rem 0.55rem;
+        color: var(--green-deep);
+        background: white;
+        font-size: 0.72rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .file-action:hover {
+        background: var(--green-soft);
+      }
+
+      .empty-state {
+        text-align: center;
+        color: var(--muted);
+        padding: 2rem 1rem;
+      }
+
+      @media (max-width: 700px) {
+        .stats { grid-template-columns: 1fr; }
+        .navbar { flex-wrap: wrap; justify-content: center; }
+        .dashboard-header { align-items: flex-start; }
+        .files-list { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <div class="brand">
+          <span class="brand-mark"><img src="./logo%20ruqami.jpeg" alt="Logo RUQAMI" /></span>
+          <div>
+            <strong>RUQAMI</strong>
+            <small>Admin Panel</small>
+          </div>
+        </div>
+        <a href="./index.html" class="admin-action">Kembali ke Website</a>
+      </div>
+    </header>
+
+    <main class="container auth-wrap">
+      <section id="loginPanel" class="login-card">
+        <div class="login-header">
+          <div class="icon"><i class="fa-solid fa-user-shield"></i></div>
+          <h1>Login Admin</h1>
+          <p>Masuk untuk melihat data pendaftar</p>
+          <small style="color: var(--muted); display: block; margin-top: 0.5rem;">
+            Gunakan email dan password akun admin Supabase.
+          </small>
+        </div>
+
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label for="username">Email admin</label>
+            <input id="username" name="username" type="email" placeholder="Masukkan email admin" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Masukkan password" required />
+          </div>
+
+          <button type="submit" class="primary-btn">Masuk</button>
+          <div id="loginMessage" class="login-message"></div>
+        </form>
+      </section>
+
+      <section id="dashboardPanel" class="dashboard" aria-live="polite">
+        <div class="dashboard-header">
+          <h2>Data Pendaftaran Santri</h2>
+          <button id="logoutBtn" class="secondary-btn" type="button">Logout</button>
+        </div>
+        <p id="dashboardMessage" class="login-message" role="status"></p>
+
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-label">Total Pendaftar</div>
+            <div id="totalCount" class="stat-value">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Sudah Lengkap</div>
+            <div id="completeCount" class="stat-value">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Status Terakhir</div>
+            <div id="statusText" class="stat-value">-</div>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <label for="registrationSearch">Cari nomor pendaftaran</label>
+          <input
+            id="registrationSearch"
+            type="search"
+            placeholder="Ketik nomor pendaftaran..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nomor Pendaftaran</th>
+                <th>Nama</th>
+                <th>WhatsApp</th>
+                <th>Lokasi</th>
+                <th>Waktu</th>
+                <th>Status</th>
+                <th>Detail</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabase-config.js"></script>
+    <script>
+      const supabaseClient = window.supabase.createClient(
+        window.RUQAMI_SUPABASE_URL,
+        window.RUQAMI_SUPABASE_KEY
+      );
+      const loginPanel = document.getElementById('loginPanel');
+      const dashboardPanel = document.getElementById('dashboardPanel');
+      const loginForm = document.getElementById('adminLoginForm');
+      const loginMessage = document.getElementById('loginMessage');
+      const dashboardMessage = document.getElementById('dashboardMessage');
+      const registrationSearch = document.getElementById('registrationSearch');
+      let allSubmissions = [];
+      let tableRenderGeneration = 0;
+
+      async function checkSession() {
+        const { data, error } = await supabaseClient.auth.getSession();
+        if (error) {
+          throw error;
+        }
+        const isLoggedIn = Boolean(data.session);
+        loginPanel.style.display = isLoggedIn ? 'none' : 'block';
+        dashboardPanel.style.display = isLoggedIn ? 'block' : 'none';
+
+        if (isLoggedIn) {
+          await renderDashboard();
+        }
+      }
+
+      function normaliseSubmission(row) {
+        const payload = row && typeof row.data === 'object' && row.data ? row.data : {};
+        const files = row && row.files && typeof row.files === 'object' ? row.files : {};
+
+        return {
+          ...payload,
+          id: row?.id || payload.id || '-',
+          createdAt: row?.created_at || payload.createdAt || null,
+          status: row?.status || payload.status || 'Menunggu',
+          uploadComplete: Boolean(row?.upload_complete ?? payload.uploadComplete),
+          files
+        };
+      }
+
+      async function renderDashboard() {
+        dashboardMessage.textContent = 'Memuat data pendaftaran...';
+        const { data: rows, error } = await supabaseClient
+          .from('participant_registrations')
+          .select('*')
+          .order('created_at', { ascending: false });
+        if (error) {
+          dashboardMessage.textContent = `Gagal memuat data: ${error.message}`;
+          throw error;
+        }
+        allSubmissions = Array.isArray(rows) ? rows.map(normaliseSubmission) : [];
+        const totalCount = document.getElementById('totalCount');
+        const completeCount = document.getElementById('completeCount');
+        const statusText = document.getElementById('statusText');
+
+        totalCount.textContent = String(allSubmissions.length);
+        completeCount.textContent = String(allSubmissions.filter((item) => item.uploadComplete).length);
+        statusText.textContent = allSubmissions.length ? 'Aktif' : '-';
+        dashboardMessage.textContent = '';
+        await renderSubmissionRows();
+      }
+
+      async function renderSubmissionRows() {
+        const tbody = document.getElementById('tableBody');
+        const generation = ++tableRenderGeneration;
+        const searchTerm = registrationSearch.value.trim().toLocaleLowerCase();
+        const submissions = allSubmissions.filter((item) =>
+          String(item.id || '').toLocaleLowerCase().includes(searchTerm)
+        );
+        tbody.replaceChildren();
+        if (!submissions.length) {
+          const row = document.createElement('tr');
+          const cell = document.createElement('td');
+          cell.colSpan = 9;
+          cell.className = 'empty-state';
+          cell.textContent = allSubmissions.length
+            ? 'Nomor pendaftaran tidak ditemukan.'
+            : 'Belum ada data pendaftaran yang tersimpan.';
+          row.append(cell);
+          tbody.append(row);
+          return;
+        }
+
+        const labels = {
+          nama: 'Nama lengkap',
+          tempatLahir: 'Tempat lahir',
+          tanggalLahir: 'Tanggal lahir',
+          jenisKelamin: 'Jenis kelamin',
+          alamat: 'Alamat',
+          waCalon: 'WhatsApp calon/wali',
+          namaOrtu: 'Nama orang tua/wali',
+          waOrtu: 'WhatsApp orang tua/wali',
+          lokasi: 'Lokasi pesantren',
+          jenjang: 'Jenjang',
+          informasiTambahan: 'Informasi tambahan'
+        };
+
+        for (const [index, item] of submissions.entries()) {
+          const row = document.createElement('tr');
+          const date = item.createdAt ? new Date(item.createdAt).toLocaleString('id-ID') : '-';
+          const values = [
+            index + 1,
+            item.id || '-',
+            item.nama || '-',
+            item.waCalon || '-',
+            item.lokasi || '-',
+            date
+          ];
+
+          values.forEach((value) => {
+            const cell = document.createElement('td');
+            cell.textContent = String(value);
+            row.append(cell);
+          });
+
+          const statusCell = document.createElement('td');
+          const badge = document.createElement('span');
+          badge.className = 'status-badge';
+          badge.textContent = item.status || 'Menunggu';
+          statusCell.append(badge);
+          row.append(statusCell);
+
+          const detailCell = document.createElement('td');
+          const details = document.createElement('details');
+          const summary = document.createElement('summary');
+          summary.className = 'detail-toggle';
+          summary.textContent = 'Lihat data';
+          const list = document.createElement('dl');
+          list.className = 'detail-list';
+
+          Object.entries(labels).forEach(([key, label]) => {
+            const entry = document.createElement('div');
+            entry.className = 'detail-item';
+            const term = document.createElement('dt');
+            term.textContent = label;
+            const value = document.createElement('dd');
+            value.textContent = item[key] || '-';
+            entry.append(term, value);
+            list.append(entry);
+          });
+
+          const files = item.files && typeof item.files === 'object' ? item.files : {};
+          const filesList = document.createElement('div');
+          filesList.className = 'files-list';
+
+          const filesTitle = document.createElement('strong');
+          filesTitle.textContent = 'Berkas peserta (lihat / unduh)';
+          filesList.append(filesTitle);
+
+          const documentLabels = {
+            foto: 'Foto',
+            kk: 'Kartu Keluarga',
+            akta: 'Akta',
+            ijazah: 'Ijazah',
+            izin: 'Surat Izin',
+            pembayaran: 'Bukti Pembayaran Pendaftaran',
+            kesehatan: 'Surat Sehat',
+            bpjs: 'Kartu Kesehatan (BPJS/AKSES)'
+          };
+          const documentKeys = [...Object.keys(documentLabels), ...Object.keys(files).filter((key) => !documentLabels[key])];
+
+          for (const fileKey of documentKeys) {
+            const fileData = files[fileKey];
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+
+            const fileName = document.createElement('span');
+            fileName.className = 'file-name';
+            fileName.textContent = documentLabels[fileKey] || fileKey.toUpperCase();
+            fileItem.append(fileName);
+
+            const storagePath = fileData && typeof fileData.path === 'string' ? fileData.path : '';
+            let signedUrl = '';
+            if (storagePath) {
+              const { data: signedFile, error: signedUrlError } = await supabaseClient
+                .storage
+                .from('participant-documents')
+                .createSignedUrl(storagePath, 300);
+              if (generation !== tableRenderGeneration) return;
+              if (signedUrlError) {
+                dashboardMessage.textContent = `Gagal membuka tautan berkas ${fileData.name || fileKey}: ${signedUrlError.message}`;
+              } else {
+                signedUrl = signedFile.signedUrl;
+              }
+            }
+            let validFileUrl = Boolean(signedUrl);
+            const fileStatus = document.createElement('span');
+            fileStatus.className = `file-status${validFileUrl ? ' uploaded' : ''}`;
+            fileStatus.textContent = validFileUrl ? 'Sudah diunggah' : storagePath ? 'Gagal dibuka' : 'Belum diunggah';
+            const fileInfo = document.createElement('div');
+            fileInfo.className = 'file-info';
+            if (validFileUrl) {
+              const fileActions = document.createElement('span');
+              fileActions.className = 'file-actions';
+
+              const viewLink = document.createElement('a');
+              viewLink.className = 'file-action';
+              viewLink.href = signedUrl;
+              viewLink.target = '_blank';
+              viewLink.rel = 'noopener noreferrer';
+              viewLink.textContent = 'Lihat';
+
+              const downloadLink = document.createElement('a');
+              downloadLink.className = 'file-action';
+              downloadLink.textContent = 'Unduh';
+              const downloadName = fileData.name || `${fileKey}.file`;
+              const { data: downloadableFile, error: downloadUrlError } = await supabaseClient
+                .storage
+                .from('participant-documents')
+                .createSignedUrl(storagePath, 300, { download: downloadName });
+              if (generation !== tableRenderGeneration) return;
+              if (downloadUrlError) {
+                fileStatus.textContent = 'Gagal membuat tautan unduh';
+                fileStatus.className = 'file-status';
+                dashboardMessage.textContent = `Gagal menyiapkan unduhan ${downloadName}: ${downloadUrlError.message}`;
+                validFileUrl = false;
+              } else {
+                downloadLink.href = downloadableFile.signedUrl;
+              }
+
+              fileActions.append(viewLink);
+              if (validFileUrl) fileActions.append(downloadLink);
+              fileInfo.append(fileStatus, fileActions);
+            } else {
+              fileInfo.append(fileStatus);
+            }
+
+            fileItem.append(fileName, fileInfo);
+            filesList.append(fileItem);
+          }
+
+          list.append(filesList);
+          details.append(summary, list);
+          detailCell.append(details);
+          row.append(detailCell);
+
+          const actionCell = document.createElement('td');
+          const deleteButton = document.createElement('button');
+          deleteButton.type = 'button';
+          deleteButton.className = 'delete-btn';
+          deleteButton.dataset.submissionId = item.id || '';
+          deleteButton.dataset.submissionName = item.nama || '';
+          deleteButton.textContent = 'Hapus';
+          deleteButton.setAttribute('aria-label', `Hapus data ${item.nama || item.id || 'peserta'}`);
+          actionCell.append(deleteButton);
+          row.append(actionCell);
+          if (generation !== tableRenderGeneration) return;
+          tbody.append(row);
+        }
+      }
+
+      registrationSearch.addEventListener('input', () => {
+        renderSubmissionRows().catch((error) => {
+          dashboardMessage.textContent = `Gagal menampilkan hasil pencarian: ${error.message}`;
+        });
+      });
+
+      document.getElementById('tableBody').addEventListener('click', (event) => {
+        const deleteButton = event.target.closest('.delete-btn');
+        if (!deleteButton) return;
+
+        deleteSubmission(deleteButton.dataset.submissionId, deleteButton.dataset.submissionName);
+      });
+
+      async function deleteSubmission(submissionId, submissionName) {
+        if (!submissionId) {
+          alert('Data peserta tidak memiliki nomor pendaftaran, sehingga tidak dapat dihapus.');
+          return;
+        }
+
+        const confirmed = window.confirm(
+          `Hapus data pendaftaran ${submissionName || submissionId} (${submissionId})? Tindakan ini tidak dapat dibatalkan.`
+        );
+        if (!confirmed) return;
+
+        const { data: registration, error: fetchError } = await supabaseClient
+          .from('participant_registrations')
+          .select('files')
+          .eq('id', submissionId)
+          .single();
+        if (fetchError) {
+          alert(`Gagal membaca berkas peserta: ${fetchError.message}`);
+          return;
+        }
+
+        const fileMap = registration && typeof registration.files === 'object' ? registration.files : {};
+        const paths = Object.values(fileMap)
+          .map((file) => file && typeof file === 'object' && typeof file.path === 'string' ? file.path : null)
+          .filter((path) => path !== null);
+        if (paths.length) {
+          const { error: storageError } = await supabaseClient
+            .storage
+            .from('participant-documents')
+            .remove(paths);
+          if (storageError) {
+            alert(`Gagal menghapus berkas peserta: ${storageError.message}`);
+            return;
+          }
+        }
+
+        const { error: deleteError } = await supabaseClient
+          .from('participant_registrations')
+          .delete()
+          .eq('id', submissionId);
+        if (deleteError) {
+          alert(`Gagal menghapus data peserta: ${deleteError.message}`);
+          return;
+        }
+
+        await renderDashboard();
+        alert('Data peserta berhasil dihapus.');
+      }
+
+      loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        loginMessage.textContent = '';
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+          loginMessage.textContent = `Login gagal: ${error.message}`;
+          return;
+        }
+        try {
+          await checkSession();
+        } catch (sessionError) {
+          loginMessage.textContent = `Gagal membuka data admin: ${sessionError.message}`;
+        }
+      });
+
+      document.getElementById('logoutBtn').addEventListener('click', async () => {
+        const { error } = await supabaseClient.auth.signOut();
+        if (error) {
+          dashboardMessage.textContent = `Gagal logout: ${error.message}`;
+          return;
+        }
+        await checkSession();
+        loginForm.reset();
+      });
+
+      checkSession().catch((error) => {
+        loginMessage.textContent = `Gagal memeriksa sesi admin: ${error.message}`;
+      });
+    </script>
+  </body>
+</html>

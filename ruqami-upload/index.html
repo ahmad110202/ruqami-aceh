@@ -1,0 +1,2722 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUQAMI | Penerimaan Santri Baru</title>
+    <meta
+      name="description"
+      content="Penerimaan Santri Baru Ma'had Rumah Qur'an Al-Amiri (RUQAMI) - website resmi pendaftaran santri baru."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --green-deep: #00563f;
+        --green-medium: #0c7c59;
+        --green-soft: #eaf7f1;
+        --gold: #ddaa24;
+        --cream: #fff9e8;
+        --cream-2: #f6f0dd;
+        --text: #1c2b27;
+        --muted: #6a736f;
+        --border: rgba(0, 86, 63, 0.12);
+        --shadow: 0 16px 40px rgba(0, 86, 63, 0.12);
+        --shadow-soft: 0 12px 30px rgba(34, 34, 34, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(180deg, #fffdf9 0%, #fff9e8 100%);
+        color: var(--text);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(0, 86, 63, 0.94);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 88px;
+        gap: 2rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #fff;
+      }
+
+      .brand-mark {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--gold), #f6d36d);
+        color: var(--green-deep);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 1.2rem;
+        box-shadow: 0 12px 22px rgba(221, 170, 36, 0.3);
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .brand-text strong {
+        font-size: 1.65rem;
+        letter-spacing: 0.06em;
+      }
+
+      .brand-text span {
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        opacity: 0.84;
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+        flex-wrap: wrap;
+      }
+
+      .main-nav a {
+        position: relative;
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 500;
+        padding: 0.7rem 0.5rem;
+        transition: 0.25s ease;
+      }
+
+      .main-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.25s ease;
+      }
+
+      .main-nav a:hover,
+      .main-nav a.active {
+        color: #fff;
+      }
+
+      .main-nav a:hover::after,
+      .main-nav a.active::after {
+        width: 100%;
+      }
+
+      .header-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        background: linear-gradient(135deg, var(--gold), #f0c964);
+        color: var(--green-deep);
+        border: none;
+        border-radius: 999px;
+        padding: 0.8rem 1.2rem;
+        font-weight: 700;
+        box-shadow: 0 12px 25px rgba(221, 170, 36, 0.25);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 3.5rem 0 2rem;
+        background:
+          radial-gradient(circle at top right, rgba(221, 170, 36, 0.1), transparent 28%),
+          linear-gradient(135deg, rgba(0, 86, 63, 0.08), rgba(255, 249, 232, 0.4));
+      }
+
+      .hero-background-logo {
+        position: absolute;
+        right: 2%;
+        top: 8%;
+        width: min(40vw, 520px);
+        opacity: 0.14;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .hero-background-logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 18px 35px rgba(0, 86, 63, 0.15));
+      }
+
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(12px);
+        opacity: 0.8;
+      }
+
+      .hero::before {
+        width: 320px;
+        height: 320px;
+        right: -90px;
+        top: -80px;
+        background: rgba(221, 170, 36, 0.08);
+      }
+
+      .hero::after {
+        width: 260px;
+        height: 260px;
+        left: -80px;
+        bottom: 0;
+        background: rgba(0, 86, 63, 0.08);
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: rgba(0, 86, 63, 0.08);
+        color: var(--green-deep);
+        border: 1px solid rgba(0, 86, 63, 0.12);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 0.5rem 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .eyebrow .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 5px rgba(221, 170, 36, 0.12);
+      }
+
+      .hero-copy h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2.4rem, 4vw, 4.7rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        color: var(--green-deep);
+      }
+
+      .hero-copy h1 .highlight {
+        display: block;
+        color: var(--gold);
+      }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 620px;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-wab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        border-radius: 999px;
+        padding: 0.92rem 1.5rem;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold), #e9c45d);
+        color: var(--green-deep);
+        box-shadow: 0 15px 28px rgba(221, 170, 36, 0.22);
+      }
+
+      .btn-secondary {
+        background: var(--green-deep);
+        color: #fff;
+        box-shadow: 0 15px 26px rgba(0, 86, 63, 0.18);
+      }
+
+      .btn-wab {
+        background: #25d366;
+        color: #fff;
+        box-shadow: 0 12px 24px rgba(37, 211, 102, 0.22);
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .btn-wab:hover,
+      .header-cta:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        color: var(--green-deep);
+      }
+
+      .meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(0, 86, 63, 0.08);
+        border-radius: 16px;
+        padding: 0.7rem 1rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .meta-badge .fa-solid {
+        color: var(--gold);
+      }
+
+      .meta-badge.quota-full {
+        background: rgba(190, 35, 35, 0.92);
+        color: #fff;
+      }
+
+      .quota-notice {
+        margin: 0 0 1.25rem;
+        padding: 0.9rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--green-soft);
+        color: var(--green-deep);
+        font-weight: 600;
+      }
+
+      .quota-notice.quota-full {
+        border-color: rgba(190, 35, 35, 0.25);
+        background: #fff1f1;
+        color: #a51d1d;
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+
+      .hero-card {
+        position: relative;
+        background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,249,232,0.9));
+        border: 1px solid rgba(0, 86, 63, 0.08);
+        border-radius: 32px;
+        padding: 1.2rem;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card img {
+        width: 100%;
+        height: 540px;
+        object-fit: cover;
+        border-radius: 24px;
+      }
+
+      .hero-badge {
+        position: absolute;
+        right: -18px;
+        bottom: 36px;
+        background: rgba(0, 86, 63, 0.95);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0.9rem 1rem;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .hero-badge strong {
+        display: block;
+        font-size: 1.2rem;
+      }
+
+      section {
+        scroll-margin-top: 100px;
+      }
+
+      .section-shell {
+        padding: 5rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-header small {
+        display: block;
+        color: var(--gold);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      .section-header h2 {
+        margin: 0.4rem 0 0;
+        font-size: clamp(2rem, 3vw, 3rem);
+        color: var(--green-deep);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 32px rgba(0, 86, 63, 0.1);
+      }
+
+      .info-icon {
+        width: 58px;
+        height: 58px;
+        background: linear-gradient(135deg, rgba(0, 86, 63, 0.12), rgba(221, 170, 36, 0.12));
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        color: var(--green-deep);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .info-card h3 {
+        font-size: 1.2rem;
+        color: var(--green-deep);
+      }
+
+      .info-card p,
+      .info-card li {
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .info-card ul {
+        margin: 1rem 0 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .promo-wrap {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 32px;
+        padding: clamp(1rem, 2vw, 2rem);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .promo-layout {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .promo-text p {
+        margin: 1rem 0 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .promo-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .mini-stat {
+        background: rgba(0, 86, 63, 0.05);
+        border: 1px solid rgba(0, 86, 63, 0.1);
+        border-radius: 18px;
+        padding: 1rem;
+      }
+
+      .mini-stat strong {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--green-deep);
+      }
+
+      .mini-stat span {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .promo-image {
+        overflow: hidden;
+        border-radius: 28px;
+        border: 1px solid rgba(0, 86, 63, 0.08);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .promo-image img {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .registration-detail-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .detail-item {
+        background: rgba(255,255,255,0.7);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 1.5rem;
+      }
+
+      .detail-item h3 {
+        color: var(--green-deep);
+        margin: 0 0 0.8rem;
+      }
+
+      .detail-item ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .payment-account-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem 1.5rem;
+      }
+
+      .payment-account-details li {
+        flex: 1 1 180px;
+      }
+
+      .detail-item li {
+        color: var(--muted);
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+
+      .detail-item li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: var(--gold);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid var(--border);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .gallery-item .zoom {
+        position: absolute;
+        inset: auto 12px 12px auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(0, 86, 63, 0.9);
+        color: #fff;
+        display: grid;
+        place-items: center;
+      }
+
+      .form-shell,
+      .upload-shell,
+      .download-shell {
+        background: rgba(255,255,255,0.72);
+        border: 1px solid var(--border);
+        border-radius: 32px;
+        box-shadow: var(--shadow-soft);
+        padding: clamp(1rem, 2vw, 2.2rem);
+      }
+
+      .stepper {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+        flex-wrap: wrap;
+      }
+
+      .step {
+        flex: 1 1 0;
+        min-width: 130px;
+        text-align: center;
+        position: relative;
+        padding: 1rem 0.75rem 0;
+        color: var(--muted);
+      }
+
+      .step::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 16%;
+        width: 68%;
+        height: 3px;
+        border-radius: 999px;
+        background: rgba(0, 86, 63, 0.1);
+      }
+
+      .step .circle {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(0, 86, 63, 0.08);
+        color: var(--green-deep);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .step.active .circle,
+      .step.done .circle {
+        background: linear-gradient(135deg, var(--gold), #f0c964);
+        color: var(--green-deep);
+      }
+
+      .step.active::before,
+      .step.done::before {
+        background: linear-gradient(90deg, var(--gold), var(--green-deep));
+      }
+
+      .step.active,
+      .step.done {
+        color: var(--green-deep);
+      }
+
+      form {
+        display: grid;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        font-weight: 600;
+        color: var(--green-deep);
+      }
+
+      .required {
+        color: #d91f1f;
+      }
+
+      input,
+      select,
+      textarea {
+        border: 1px solid rgba(0, 86, 63, 0.15);
+        border-radius: 14px;
+        background: #fff;
+        padding: 0.9rem 1rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--green-medium);
+        box-shadow: 0 0 0 3px rgba(12, 124, 89, 0.12);
+        outline: none;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .error-text {
+        min-height: 1rem;
+        color: #c92f2f;
+        font-size: 0.82rem;
+      }
+
+      .submit-row {
+        margin-top: 1.2rem;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid rgba(0, 86, 63, 0.08);
+        padding: 1rem 0.8rem;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: rgba(0, 86, 63, 0.04);
+        color: var(--green-deep);
+        font-weight: 700;
+      }
+
+      td.file-cell {
+        min-width: 210px;
+      }
+
+      .file-upload {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .custom-file {
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed rgba(0, 86, 63, 0.25);
+        border-radius: 10px;
+        background: rgba(0, 86, 63, 0.02);
+        color: var(--green-deep);
+        padding: 0.7rem 1rem;
+        cursor: pointer;
+        min-width: 120px;
+      }
+
+      .custom-file input {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .filename {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .status-unuploaded {
+        background: rgba(108, 117, 125, 0.08);
+        color: #6c757d;
+      }
+
+      .status-ready {
+        background: rgba(221, 170, 36, 0.12);
+        color: #8a650d;
+      }
+
+      .status-success {
+        background: rgba(16, 185, 129, 0.12);
+        color: #167d5f;
+      }
+
+      .upload-action {
+        background: var(--green-deep);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.7rem 0.9rem;
+        font-weight: 600;
+      }
+
+      .upload-action:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .upload-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.4rem;
+        flex-wrap: wrap;
+      }
+
+      .upload-note {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .download-box {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .print-proof-header {
+        display: none;
+      }
+
+      .check-badge {
+        width: 92px;
+        height: 92px;
+        margin: 0 auto 0.5rem;
+        background: linear-gradient(135deg, rgba(0, 86, 63, 0.15), rgba(16,185,129,0.18));
+        border: 1px solid rgba(0, 86, 63, 0.08);
+        border-radius: 50%;
+        color: #168f6d;
+        font-size: 2.4rem;
+        display: grid;
+        place-items: center;
+      }
+
+      .confirmation-title {
+        text-align: center;
+        color: var(--green-deep);
+        margin: 0;
+        font-size: clamp(1.7rem, 2.5vw, 2.7rem);
+      }
+
+      .confirmation-subtext {
+        text-align: center;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .registration-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0.8rem 1.2rem;
+        border-radius: 12px;
+        background: rgba(221, 170, 36, 0.1);
+        color: var(--green-deep);
+        font-weight: 700;
+        border: 1px solid rgba(221, 170, 36, 0.2);
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .summary-item {
+        background: rgba(0, 86, 63, 0.03);
+        border: 1px solid rgba(0, 86, 63, 0.08);
+        border-radius: 18px;
+        padding: 1rem;
+      }
+
+      .summary-item small {
+        display: block;
+        color: var(--muted);
+        margin-bottom: 0.25rem;
+      }
+
+      .summary-item strong {
+        color: var(--green-deep);
+        font-size: 1rem;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .wa-note {
+        color: var(--muted);
+        text-align: center;
+        line-height: 1.8;
+      }
+
+      .wa-note a {
+        color: var(--green-deep);
+        font-weight: 700;
+      }
+
+      .floating-wa {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 999;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #21c75d, #16a34a);
+        color: #fff;
+        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
+        font-size: 1.6rem;
+      }
+
+      footer {
+        background: linear-gradient(135deg, var(--green-deep), #013d2d);
+        color: rgba(255,255,255,0.9);
+        padding: 4rem 0 1.5rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-brand .brand-mark {
+        width: 56px;
+        height: 56px;
+      }
+
+      .footer-brand strong {
+        font-size: 1.6rem;
+        letter-spacing: 0.06em;
+      }
+
+      footer p,
+      footer li,
+      footer a {
+        color: rgba(255,255,255,0.84);
+        line-height: 1.8;
+      }
+
+      footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-bottom {
+        margin-top: 2rem;
+        padding-top: 1.3rem;
+        border-top: 1px solid rgba(255,255,255,0.14);
+        text-align: center;
+        color: rgba(255,255,255,0.7);
+      }
+
+      @media (max-width: 980px) {
+        .hero-inner,
+        .promo-layout,
+        .footer-grid,
+        .form-grid,
+        .summary-grid,
+        .info-grid,
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .navbar {
+          flex-wrap: wrap;
+          padding: 0.75rem 0;
+          justify-content: center;
+        }
+
+        .main-nav {
+          justify-content: center;
+        }
+
+        .brand {
+          margin-right: auto;
+        }
+
+        .hero-copy {
+          text-align: center;
+        }
+
+        .hero-actions,
+        .hero-meta {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section-shell {
+          padding: 4rem 0;
+        }
+
+        .promo-stats,
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .brand-text strong {
+          font-size: 1.35rem;
+        }
+
+        .header-cta {
+          width: 100%;
+        }
+
+        .main-nav {
+          gap: 0.5rem 0.8rem;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 14mm;
+        }
+
+        body {
+          background: white;
+          color: #1c2b27;
+        }
+
+        body > header,
+        body > footer,
+        main > section:not(#download) {
+          display: none !important;
+        }
+
+        #download.section-shell {
+          display: block !important;
+          min-height: 0;
+          padding: 0;
+        }
+
+        #download .container {
+          width: 100%;
+          max-width: none;
+        }
+
+        #download .section-header,
+        #download .stepper,
+        #download .check-badge,
+        #download .confirmation-title,
+        #download .confirmation-subtext,
+        #download .action-buttons,
+        #download .wa-note {
+          display: none !important;
+        }
+
+        .download-shell {
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+          background: #fff;
+        }
+
+        .download-box {
+          gap: 1rem;
+        }
+
+        .print-proof-header {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 0 0 14px;
+          border-bottom: 3px solid var(--green-deep);
+        }
+
+        .print-proof-header img {
+          width: 72px;
+          height: 72px;
+          object-fit: contain;
+        }
+
+        .print-proof-header div {
+          display: grid;
+          gap: 3px;
+        }
+
+        .print-proof-header strong {
+          color: var(--green-deep);
+          font-size: 20px;
+        }
+
+        .print-proof-header span {
+          color: var(--muted);
+          font-size: 11px;
+        }
+
+        .registration-number {
+          justify-self: start;
+          margin: 0;
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+
+        .summary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+        }
+
+        .summary-item {
+          border: 1px solid #d9e5df;
+          border-radius: 6px;
+          padding: 10px 12px;
+          break-inside: avoid;
+        }
+
+        .summary-item small {
+          font-size: 10px;
+        }
+
+        .summary-item strong {
+          font-size: 12px;
+        }
+
+        .floating-wa {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="#home" class="brand" aria-label="Beranda RUQAMI">
+          <span class="brand-mark"><img src="./logo%20ruqami.jpeg" alt="Logo RUQAMI" /></span>
+          <span class="brand-text">
+            <strong>RUQAMI</strong>
+            <span>Ma’had Rumah Qur’an Al-Amiri</span>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navigasi utama">
+          <a href="#home" class="active">Beranda</a>
+          <a href="#promotion">Profil Pesantren</a>
+          <a href="#form">Mulai Daftar</a>
+          <a href="#upload">Unggah Berkas</a>
+          <a href="#download">Download Bukti</a>
+          <a href="./admin.html">Admin</a>
+        </nav>
+
+        <a class="header-cta" href="https://wa.me/6282369958775?text=Assalamu%E2%80%99alaikum%2C%20Ustaz%2FUstazah%2C%20apakah%20pendaftaran%20santri%20baru%20masih%20dibuka%3F%20%F0%9F%99%8F" target="_blank" rel="noreferrer">
+          <i class="fa-brands fa-whatsapp"></i>
+          Hubungi Kami
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-background-logo" aria-hidden="true">
+          <img src="./logo%20ruqami.jpeg" alt="" />
+        </div>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="dot"></span> Penerimaan</div>
+            <h1>Penerimaan <span class="highlight">SANTRI BARU</span></h1>
+            <p class="hero-subtitle">
+              Ma’had Rumah Qur’an Al-Amiri<br />
+              Mencetak Generasi Qur’ani yang Berilmu, Berakhlak Mulia dan Mampu Berbahasa Arab
+            </p>
+
+            <div class="hero-actions">
+              <a href="#form" class="btn-primary">Mulai Daftar</a>
+              <a href="#promotion" class="btn-secondary">Lihat Profil Pesantren</a>
+            </div>
+
+            <div class="hero-meta">
+              <div class="meta-badge" id="registrationQuotaBadge"><i class="fa-solid fa-users"></i> Kuota terbatas</div>
+              <div class="meta-badge"><i class="fa-solid fa-calendar-days"></i> Pendaftaran 2027/2028</div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Logo RUQAMI">
+            <div class="hero-card">
+              <img
+                src="./gambar%20mesjid.png"
+                alt="Masjid dan lingkungan pesantren"
+              />
+              <div class="hero-badge">
+                <strong>2027/2028</strong>
+                <span>Tahun Ajaran</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="container">
+          <div class="section-header">
+            <small>RUQAMI</small>
+            <h2>Menyiapkan Generasi Qur’ani</h2>
+          </div>
+
+          <div class="info-grid">
+            <article class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-eye"></i></div>
+              <h3>Visi</h3>
+              <p>
+                Melahirkan generasi Qur’ani yang berilmu, berakhlak mulia, dan mampu berbahasa Arab.
+              </p>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <h3>Misi</h3>
+              <p>
+                Menyelenggarakan tahfidz Al-Qur’an, pendidikan bahasa Arab, pembinaan akhlak, dan
+                pengembangan potensi santri.
+              </p>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-award"></i></div>
+              <h3>Keunggulan</h3>
+              <p>
+                Tahfidz 30 juz, bahasa Arab, hadis dan Riyadhus Shalihin, asatizah berpengalaman, serta
+                ujian SMP dan SMA sesuai program.
+              </p>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-trophy"></i></div>
+              <h3>Prestasi Santri</h3>
+              <ul>
+                <li>Juara tahfidz tingkat lokal.</li>
+                <li>Kompetisi bahasa Arab &amp; MTQ.</li>
+                <li>Prestasi akademik dan non-akademik.</li>
+              </ul>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-person-digging"></i></div>
+              <h3>Ekstrakurikuler</h3>
+              <ul>
+                <li>Menanah / kegiatan keterampilan.</li>
+                <li>Rihlah dan rekreasi.</li>
+                <li>Green school dan pembiasaan Islami.</li>
+              </ul>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <h3>Lokasi Pesantren</h3>
+              <p>
+                MA’had Rumah Qur’an Al-Amiri<br />
+                Jl. Gleee Iniem, Lam Klat, Darussalam, Aceh Besar<br />
+                WhatsApp: +62 823-6995-8775
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="promotion" class="section-shell">
+        <div class="container">
+          <div class="section-header">
+            <small>Profil Pesantren</small>
+            <h2>PROFIL PESANTREN</h2>
+          </div>
+
+          <div class="promo-wrap">
+            <div class="promo-layout">
+              <div class="promo-text">
+                <h3>Mengenal Lebih Dekat Ma’had Rumah Qur’an Al-Amiri</h3>
+                <p>
+                  Ruqami adalah lembaga pendidikan berbasis Qur’ani yang menggabungkan pembinaan ibadah,
+                  hafalan, bahasa Arab, dan penguatan akhlak. Kami berkomitmen membentuk generasi yang
+                  memiliki kekuatan iman, intelektualitas, dan kedewasaan sosial.
+                </p>
+                <div class="promo-stats">
+                  <div class="mini-stat">
+                    <strong>30</strong>
+                    <span>Juz Tahfidz</span>
+                  </div>
+                  <div class="mini-stat">
+                    <strong>8+</strong>
+                    <span>Program Unggulan</span>
+                  </div>
+                  <div class="mini-stat">
+                    <strong>24/7</strong>
+                    <span>Lingkungan Islami</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="promo-image">
+                <img
+                  src="./gambar%20bangunan.jpg"
+                  alt="Gedung pesantren"
+                />
+              </div>
+            </div>
+
+            <div class="detail-grid">
+              <div class="detail-item">
+                <h3>Profil Singkat</h3>
+                <ul>
+                  <li>Berbasis pendidikan Qur’ani dan akhlak mulia.</li>
+                  <li>Memberikan pendekatan pembelajaran yang terstruktur dan modern.</li>
+                  <li>Mengutamakan kedisiplinan, ibadah, dan semangat belajar.</li>
+                </ul>
+              </div>
+
+              <div class="detail-item">
+                <h3>Visi &amp; Misi</h3>
+                <ul>
+                  <li>Visi: Menjadi pusat pendidikan Qur’ani yang unggul.</li>
+                  <li>Misi: Mewujudkan santri yang hafal, berakhlak, dan berdaya saing.</li>
+                  <li>Penguatan karakter dan literasi bahasa Arab.</li>
+                </ul>
+              </div>
+
+              <div class="detail-item">
+                <h3>Keunggulan Program</h3>
+                <ul>
+                  <li>Metode hafalan yang konsisten dan terukur.</li>
+                  <li>Pembinaan akhlak, adab, dan disiplin.</li>
+                  <li>Kegiatan tahsin, hadits, dan kemampuan berbahasa Arab.</li>
+                </ul>
+              </div>
+
+              <div class="detail-item">
+                <h3>Ekstrakurikuler</h3>
+                <ul>
+                  <li>Rihlah dan kegiatan rekreasi Islami.</li>
+                  <li>Menanah dan keterampilan lingkungan.</li>
+                  <li>Green school dan kegiatan sosial berbasis pesantren.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="detail-grid registration-detail-grid">
+              <div class="detail-item">
+                <h3>Syarat Pendaftaran</h3>
+                <ul>
+                  <li>Mengisi formulir pendaftaran secara online.</li>
+                  <li>Lancar membaca Al-Qur’an dengan tajwid.</li>
+                  <li>
+                    Membayar biaya pendaftaran sebesar <strong>Rp100.000</strong> melalui:
+                    <ul class="payment-account-details">
+                      <li><strong>Bank Syariah Indonesia (BSI)</strong></li>
+                      <li>Nomor rekening: <strong>71 9494 9191</strong></li>
+                      <li>Atas nama: <strong>Yayasan Rumah Qur’an Al Amiri Aceh</strong></li>
+                      <li>Kode bank BSI: <strong>451</strong></li>
+                    </ul>
+                  </li>
+                  <li>
+                    Konfirmasikan pembayaran dengan mengirim bukti transfer pendaftaran ke WhatsApp
+                    <a href="https://wa.me/6282369958775" target="_blank" rel="noreferrer">0823 6995 8775</a>.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 2.5rem;">
+              <small>Galeri</small>
+              <h2>Aktivitas Santri</h2>
+            </div>
+
+            <div class="gallery">
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%201.jpg" alt="Aktivitas santri 1" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%202.png" alt="Aktivitas santri 2" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%203.png" alt="Aktivitas santri 3" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%204.jpeg" alt="Aktivitas santri 4" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%205.jpeg" alt="Aktivitas santri 5" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%206.png" alt="Aktivitas santri 6" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%207.png" alt="Aktivitas santri 7" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%208.png" alt="Aktivitas santri 8" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%209.png" alt="Aktivitas santri 9" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item">
+                <img src="./gambar%20aktivitas%2010.png" alt="Aktivitas santri 10" />
+                <div class="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="form" class="section-shell">
+        <div class="container">
+          <div class="section-header">
+            <small>Formulir</small>
+            <h2>FORMULIR PENDAFTARAN</h2>
+          </div>
+          <p id="registrationQuotaNotice" class="quota-notice" role="status" aria-live="polite"></p>
+          <p id="registrationLockNotice" class="quota-notice" role="status" hidden></p>
+
+          <div class="form-shell">
+            <div class="stepper" aria-label="Tahapan pendaftaran">
+              <div class="step active">
+                <div class="circle">1</div>
+                <div>Formulir</div>
+              </div>
+              <div class="step">
+                <div class="circle">2</div>
+                <div>Unggah Berkas</div>
+              </div>
+              <div class="step">
+                <div class="circle">3</div>
+                <div>Download Bukti</div>
+              </div>
+            </div>
+
+            <form id="registrationForm" novalidate>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="nama">Nama lengkap calon santri <span class="required">*</span></label>
+                  <input id="nama" name="nama" type="text" placeholder="Masukkan nama lengkap" />
+                  <div class="error-text" data-error-for="nama"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="tempatLahir">Tempat lahir <span class="required">*</span></label>
+                  <input id="tempatLahir" name="tempatLahir" type="text" placeholder="Contoh: Banda Aceh" />
+                  <div class="error-text" data-error-for="tempatLahir"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="tanggalLahir">Tanggal lahir <span class="required">*</span></label>
+                  <input
+                    id="tanggalLahir"
+                    name="tanggalLahir"
+                    type="date"
+                    lang="id-ID"
+                    inputmode="numeric"
+                    aria-label="Pilih tanggal lahir"
+                  />
+                  <div class="error-text" data-error-for="tanggalLahir"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="jenisKelamin">Jenis kelamin <span class="required">*</span></label>
+                  <select id="jenisKelamin" name="jenisKelamin">
+                    <option value="">Pilih jenis kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                  <div class="error-text" data-error-for="jenisKelamin"></div>
+                </div>
+
+                <div class="form-field full">
+                  <label for="alamat">Alamat lengkap <span class="required">*</span></label>
+                  <textarea id="alamat" name="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+                  <div class="error-text" data-error-for="alamat"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="waCalon">Nomor WhatsApp calon santri atau wali <span class="required">*</span></label>
+                  <input id="waCalon" name="waCalon" type="tel" placeholder="Contoh: 0812xxxxxxxx" />
+                  <div class="error-text" data-error-for="waCalon"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="namaOrtu">Nama orang tua/wali <span class="required">*</span></label>
+                  <input id="namaOrtu" name="namaOrtu" type="text" placeholder="Nama orang tua/wali" />
+                  <div class="error-text" data-error-for="namaOrtu"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="waOrtu">Nomor WhatsApp orang tua/wali <span class="required">*</span></label>
+                  <input id="waOrtu" name="waOrtu" type="tel" placeholder="Contoh: 0812xxxxxxxx" />
+                  <div class="error-text" data-error-for="waOrtu"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="lokasi">Lokasi pesantren yang dipilih <span class="required">*</span></label>
+                  <select id="lokasi" name="lokasi">
+                    <option value="">Pilih lokasi</option>
+                    <option value="Aceh Besar">1. Aceh Besar — Siswa/Mahasiswa Lk/Pr: Asrama ✓, Nonasrama ✓</option>
+                    <option value="Aceh Tengah">2. Aceh Tengah — Siswa Pr: Asrama ✓; Lk tidak diterima</option>
+                    <option value="Aceh Selatan">3. Aceh Selatan — Siswa Lk/Pr: Nonasrama ✓</option>
+                  </select>
+                  <div class="error-text" data-error-for="lokasi"></div>
+                </div>
+
+                <div class="form-field">
+                  <label for="jenjang">Jenjang pendidikan <span class="required">*</span></label>
+                  <select id="jenjang" name="jenjang">
+                    <option value="">Pilih jenjang</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="Perguruan Tinggi">Perguruan Tinggi</option>
+                  </select>
+                  <div class="error-text" data-error-for="jenjang"></div>
+                </div>
+
+                <div class="form-field full">
+                  <label for="informasiTambahan">Informasi tambahan (opsional)</label>
+                  <textarea id="informasiTambahan" name="informasiTambahan" placeholder="Tambahkan informasi yang relevan"></textarea>
+                  <div class="error-text" data-error-for="informasiTambahan"></div>
+                </div>
+              </div>
+
+              <div class="submit-row">
+                <button type="submit" class="btn-primary">Lanjut ke Unggah Berkas</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="upload" class="section-shell">
+        <div class="container">
+          <div class="section-header">
+            <small>Unggah</small>
+            <h2>UNGGAH BERKAS</h2>
+          </div>
+
+          <div class="upload-shell">
+            <div class="stepper" aria-label="Tahapan unggah berkas">
+              <div class="step done">
+                <div class="circle">1</div>
+                <div>Formulir</div>
+              </div>
+              <div class="step active">
+                <div class="circle">2</div>
+                <div>Unggah Berkas</div>
+              </div>
+              <div class="step">
+                <div class="circle">3</div>
+                <div>Download Bukti</div>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table aria-label="Daftar dokumen pendaftaran">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Jenis Berkas</th>
+                    <th>Input File</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-row-key="foto">
+                    <td>1</td>
+                    <td>Pas foto berwarna</td>
+                    <td class="file-cell">
+                      <div class="file-upload">
+                        <label class="custom-file">
+                          <input type="file" class="file-input" accept="image/jpeg,image/png" data-max-size="1048576" />
+                          Pilih File
+                        </label>
+                        <span class="filename">Belum ada file</span>
+                      </div>
+                    </td>
+                    <td><span class="status-pill status-unuploaded">Belum diunggah</span></td>
+                    <td><button type="button" class="upload-action" data-upload-row="foto" disabled>Unggah</button></td>
+                  </tr>
+
+                  <tr data-row-key="kk">
+                    <td>2</td>
+                    <td>Kartu Keluarga</td>
+                    <td class="file-cell">
+                      <div class="file-upload">
+                        <label class="custom-file">
+                          <input type="file" class="file-input" accept="image/jpeg,image/png,application/pdf" data-max-size="2097152" />
+                          Pilih File
+                        </label>
+                        <span class="filename">Belum ada file</span>
+                      </div>
+                    </td>
+                    <td><span class="status-pill status-unuploaded">Belum diunggah</span></td>
+                    <td><button type="button" class="upload-action" data-upload-row="kk" disabled>Unggah</button></td>
+                  </tr>
+
+                  <tr data-row-key="akta">
+                    <td>3</td>
+                    <td>Akta kelahiran</td>
+                    <td class="file-cell">
+                      <div class="file-upload">
+                        <label class="custom-file">
+                          <input type="file" class="file-input" accept="image/jpeg,image/png,application/pdf" data-max-size="2097152" />
+                          Pilih File
+                        </label>
+                        <span class="filename">Belum ada file</span>
+                      </div>
+                    </td>
+                    <td><span class="status-pill status-unuploaded">Belum diunggah</span></td>
+                    <td><button type="button" class="upload-action" data-upload-row="akta" disabled>Unggah</button></td>
+                  </tr>
+
+                  <tr data-row-key="ijazah">
+                    <td>4</td>
+                    <td>Ijazah terakhir</td>
+                    <td class="file-cell">
+                      <div class="file-upload">
+                        <label class="custom-file">
+                          <input type="file" class="file-input" accept="image/jpeg,image/png,application/pdf" data-max-size="2097152" />
+                          Pilih File
+                        </label>
+                        <span class="filename">Belum ada file</span>
+                      </div>
+                    </td>
+                    <td><span class="status-pill status-unuploaded">Belum diunggah</span></td>
+                    <td><button type="button" class="upload-action" data-upload-row="ijazah" disabled>Unggah</button></td>
+                  </tr>
+
+                  <tr data-row-key="pembayaran">
+                    <td>5</td>
+                    <td>Bukti pembayaran pendaftaran</td>
+                    <td class="file-cell">
+                      <div class="file-upload">
+                        <label class="custom-file">
+                          <input type="file" class="file-input" accept="image/jpeg,image/png,application/pdf" data-max-size="2097152" />
+                          Pilih File
+                        </label>
+                        <span class="filename">Belum ada file</span>
+                      </div>
+                    </td>
+                    <td><span class="status-pill status-unuploaded">Belum diunggah</span></td>
+                    <td><button type="button" class="upload-action" data-upload-row="pembayaran" disabled>Unggah</button></td>
+                  </tr>
+
+                  <tr data-row-key="kesehatan">
+                    <td>6</td>
+                    <td>Surat kesehatan</td>
+                    <td class="file-cell">
+                      <div class="file-upload">
+                        <label class="custom-file">
+                          <input type="file" class="file-input" accept="image/jpeg,image/png,application/pdf" data-max-size="2097152" />
+                          Pilih File
+                        </label>
+                        <span class="filename">Belum ada file</span>
+                      </div>
+                    </td>
+                    <td><span class="status-pill status-unuploaded">Belum diunggah</span></td>
+                    <td><button type="button" class="upload-action" data-upload-row="kesehatan" disabled>Unggah</button></td>
+                  </tr>
+
+                  <tr data-row-key="bpjs" data-required="false">
+                    <td>7</td>
+                    <td>Kartu kesehatan (BPJS/AKSES), jika ada (opsional)</td>
+                    <td class="file-cell">
+                      <div class="file-upload">
+                        <label class="custom-file">
+                          <input type="file" class="file-input" accept="image/jpeg,image/png,application/pdf" data-max-size="2097152" />
+                          Pilih File
+                        </label>
+                        <span class="filename">Belum ada file</span>
+                      </div>
+                    </td>
+                    <td><span class="status-pill status-unuploaded">Belum diunggah</span></td>
+                    <td><button type="button" class="upload-action" data-upload-row="bpjs" disabled>Unggah</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="upload-footer">
+              <div class="upload-note">
+                Berkas 1–6 wajib diunggah; berkas 7 (kartu kesehatan) opsional. Berkas disimpan online setelah tombol Unggah ditekan. Ukuran maksimal 2 MB per berkas.
+              </div>
+              <button type="button" id="continueUpload" class="btn-secondary">Unggah dan Lanjutkan</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="section-shell">
+        <div class="container">
+          <div class="section-header">
+            <small>Bukti</small>
+            <h2>Download Bukti</h2>
+          </div>
+
+          <div class="download-shell">
+            <div class="stepper" aria-label="Tahapan download bukti">
+              <div class="step done">
+                <div class="circle">1</div>
+                <div>Formulir</div>
+              </div>
+              <div class="step done">
+                <div class="circle">2</div>
+                <div>Unggah Berkas</div>
+              </div>
+              <div class="step active">
+                <div class="circle">3</div>
+                <div>Download Bukti</div>
+              </div>
+            </div>
+
+            <div class="download-box">
+              <div class="print-proof-header">
+                <img src="./logo%20ruqami.jpeg" alt="Logo RUQAMI" />
+                <div>
+                  <strong>RUQAMI</strong>
+                  <span>Ma'had Rumah Qur'an Al-Amiri</span>
+                  <span>Bukti Pendaftaran Santri Baru</span>
+                </div>
+              </div>
+              <div class="check-badge"><i class="fa-solid fa-check"></i></div>
+              <h3 class="confirmation-title">Pendaftaran berhasil disiapkan</h3>
+              <p class="confirmation-subtext">
+                Bukti pendaftaran sementara telah dibuat untuk keperluan demo. Data belum diverifikasi
+                secara resmi oleh server.
+              </p>
+              <div class="registration-number" id="registrationNumber">RUQAMI-2025-0001</div>
+
+              <div class="summary-grid" id="summaryGrid"></div>
+
+              <div class="action-buttons">
+                <button type="button" id="finishRegistration" class="btn-secondary">
+                  Selesaikan Pendaftaran
+                </button>
+                <button type="button" id="clearRegistrationForm" class="btn-secondary">Kosongkan Formulir</button>
+                <button type="button" id="downloadPdf" class="btn-primary">Download Bukti Pendaftaran PDF</button>
+                <button type="button" id="printProof" class="btn-secondary">Cetak Bukti Pendaftaran</button>
+              </div>
+
+              <p class="wa-note">
+                Setelah mengunduh bukti pendaftaran, harap kirimkan bukti tersebut ke nomor WhatsApp RUQAMI Aceh:
+                <a href="https://wa.me/6282369958775" target="_blank" rel="noreferrer">+62 823-6995-8775</a>
+                untuk melanjutkan proses pendaftaran.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand">
+              <span class="brand-mark"><img src="./logo%20ruqami.jpeg" alt="Logo RUQAMI" /></span>
+              <div>
+                <strong>RUQAMI</strong>
+              </div>
+            </div>
+            <p>
+              Ma’had Rumah Qur’an Al-Amiri.<br />
+              Mencetak generasi Qur’ani yang berilmu, berakhlak mulia, dan berbahasa Arab.
+            </p>
+          </div>
+
+          <div>
+            <h4>Informasi</h4>
+            <ul>
+              <li>Tahun Ajaran: 2027/2028</li>
+              <li id="registrationQuotaFooter">Kuota terbatas</li>
+              <li>Pendaftaran dibuka</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Kontak</h4>
+            <ul>
+              <li><a href="https://wa.me/6282369958775" target="_blank" rel="noreferrer">WhatsApp RUQAMI</a></li>
+              <li>+62 823-6995-8775</li>
+              <li>Jl. Gleee Iniem, Lam Klat, Darussalam, Aceh Besar</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">© 2025 RUQAMI — Ma’had Rumah Qur’an Al-Amiri</div>
+      </div>
+    </footer>
+
+    <a class="floating-wa" href="https://wa.me/6282369958775" target="_blank" rel="noreferrer" aria-label="Chat WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabase-config.js"></script>
+    <script>
+      const form = document.getElementById('registrationForm');
+      const formKey = 'ruqami_registration_form';
+      const uploadStateKey = 'ruqami_upload_state';
+      const maxSubmissions = 50;
+      const supabaseClient = window.supabase.createClient(
+        window.RUQAMI_SUPABASE_URL,
+        window.RUQAMI_SUPABASE_KEY
+      );
+
+      function getSubmissions() {
+        return JSON.parse(localStorage.getItem('ruqami_submissions') || '[]');
+      }
+
+      async function getRegistrationCount() {
+        const { data: count, error } = await supabaseClient.rpc('registration_count');
+        if (error) {
+          throw new Error(`Gagal memeriksa kuota pendaftaran: ${error.message}`);
+        }
+        return count;
+      }
+
+      async function updateQuotaStatus() {
+        const count = await getRegistrationCount();
+        const isFull = count >= maxSubmissions;
+        const badge = document.getElementById('registrationQuotaBadge');
+        const notice = document.getElementById('registrationQuotaNotice');
+        const footer = document.getElementById('registrationQuotaFooter');
+
+        badge.innerHTML = `<i class="fa-solid fa-users"></i> ${isFull ? 'KUOTA SUDAH FULL' : `Sisa kuota: ${maxSubmissions - count}`}`;
+        badge.classList.toggle('quota-full', isFull);
+        notice.textContent = isFull
+          ? `KUOTA SUDAH FULL (${count}/${maxSubmissions}). Pendaftaran baru tidak dapat dilanjutkan.`
+          : `Kuota pendaftaran: ${count}/${maxSubmissions} peserta.`;
+        notice.classList.toggle('quota-full', isFull);
+        footer.textContent = isFull ? 'KUOTA SUDAH FULL' : `Sisa kuota pendaftaran: ${maxSubmissions - count}`;
+      }
+
+      function isCurrentRegistrationAlreadySubmitted() {
+        return Boolean(getCurrentSubmission());
+      }
+
+      function getCurrentSubmission() {
+        const currentId = localStorage.getItem('ruqami_current_registration_number');
+        if (!currentId) return null;
+        const submission = getSubmissions().find((item) => item.id === currentId);
+        if (!submission) return null;
+        const hasOnlineFiles = Object.values(submission.files || {}).some((file) => file && file.path);
+        return hasOnlineFiles ? submission : null;
+      }
+
+      function updateRegistrationLock() {
+        const submission = getCurrentSubmission();
+        const locked = Boolean(submission);
+        const lockNotice = document.getElementById('registrationLockNotice');
+
+        if (submission) {
+          for (const [key, value] of Object.entries(submission)) {
+            const input = document.querySelector(`[name="${key}"]`);
+            if (input) input.value = value;
+          }
+          const savedFields = Object.fromEntries(
+            Object.keys(fieldMap).map((key) => [key, submission[key] || ''])
+          );
+          localStorage.setItem(formKey, JSON.stringify(savedFields));
+        }
+
+        form.querySelectorAll('input, select, textarea, button[type="submit"]').forEach((control) => {
+          control.disabled = locked;
+        });
+        document.querySelectorAll('.file-input, .upload-action, #continueUpload').forEach((control) => {
+          control.disabled = locked;
+        });
+        lockNotice.hidden = !locked;
+        lockNotice.textContent = locked
+          ? 'Data pendaftaran ini sudah tersimpan dan dikunci. Perubahan hanya dapat dilakukan setelah admin menghapus data peserta.'
+          : '';
+
+        const finishButton = document.getElementById('finishRegistration');
+        const clearButton = document.getElementById('clearRegistrationForm');
+        finishButton.disabled = false;
+        finishButton.textContent = 'Selesaikan Pendaftaran';
+        clearButton.disabled = false;
+        if (!locked) restoreUploadState();
+      }
+
+      const fieldMap = {
+        nama: 'Nama lengkap calon siswa',
+        tempatLahir: 'Tempat lahir',
+        tanggalLahir: 'Tanggal lahir',
+        jenisKelamin: 'Jenis kelamin',
+        alamat: 'Alamat lengkap',
+        waCalon: 'Nomor WhatsApp calon santri atau wali',
+        namaOrtu: 'Nama orang tua/wali',
+        waOrtu: 'Nomor WhatsApp orang tua/wali',
+        lokasi: 'Lokasi pesantren yang dipilih',
+        jenjang: 'Jenjang pendidikan',
+        informasiTambahan: 'Informasi tambahan'
+      };
+
+      function setActiveNav() {
+        const sections = document.querySelectorAll('main section[id]');
+        const navLinks = document.querySelectorAll('.main-nav a');
+        let current = 'home';
+
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 180 && rect.bottom >= 180) {
+            current = section.id;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          const target = link.getAttribute('href').replace('#', '');
+          link.classList.toggle('active', target === current);
+        });
+      }
+
+      function saveFormData() {
+        if (getCurrentSubmission()) return;
+        const data = Object.fromEntries(new FormData(form).entries());
+        localStorage.setItem(formKey, JSON.stringify(data));
+      }
+
+      function getRegistrationNumber() {
+        const existing = localStorage.getItem('ruqami_current_registration_number');
+        if (existing) return existing;
+
+        const today = new Date();
+        const serial = String(today.getDate()).padStart(2, '0') + String(today.getMonth() + 1).padStart(2, '0') + String(today.getFullYear()).slice(-2);
+        const number = `RUQAMI-${serial}-${String(Math.floor(Math.random() * 9000) + 1000)}`;
+        localStorage.setItem('ruqami_current_registration_number', number);
+        return number;
+      }
+
+      async function saveSubmissionRecord() {
+        const currentData = JSON.parse(localStorage.getItem(formKey) || '{}');
+        if (!currentData.nama) {
+          throw new Error('Data formulir tidak ditemukan. Silakan isi formulir pendaftaran terlebih dahulu.');
+        }
+
+        const submissions = getSubmissions();
+        const registrationId = getRegistrationNumber();
+        const existingIndex = submissions.findIndex((item) => item.id === registrationId);
+        const alreadyOnline = submissions.some((item) =>
+          item.id === registrationId &&
+          Object.values(item.files || {}).some((file) => file && file.path)
+        );
+        if (alreadyOnline) {
+          localStorage.setItem('ruqami_submission_finalized', 'true');
+          updateRegistrationLock();
+          return;
+        }
+        const currentCount = await getRegistrationCount();
+        if (currentCount >= maxSubmissions) {
+          throw new Error('KUOTA SUDAH FULL. Pendaftaran baru tidak dapat diselesaikan.');
+        }
+
+        const uploadRows = JSON.parse(localStorage.getItem(uploadStateKey) || '[]');
+        const files = {};
+        uploadRows.forEach((row) => {
+          if (!row.storagePath) return;
+          files[row.key] = {
+            name: row.fileName || `${row.key}.file`,
+            type: row.fileType || 'application/octet-stream',
+            path: row.storagePath
+          };
+        });
+        const requiredFileKeys = [...document.querySelectorAll('tr[data-row-key]:not([data-required="false"])')]
+          .map((row) => row.dataset.rowKey);
+        if (requiredFileKeys.some((key) => !files[key] || !files[key].path)) {
+          throw new Error('Semua berkas wajib harus diunggah ke server terlebih dahulu. Pilih dan unggah ulang berkas yang belum tersimpan online.');
+        }
+
+        const record = {
+          id: registrationId,
+          createdAt: new Date().toISOString(),
+          ...currentData,
+          status: 'Pendaftaran selesai',
+          uploadComplete: true,
+          files
+        };
+
+        const { error } = await supabaseClient
+          .from('participant_registrations')
+          .insert({
+            id: registrationId,
+            data: currentData,
+            status: record.status,
+            upload_complete: true,
+            files
+          });
+        if (error) {
+          throw new Error(`Gagal menyimpan pendaftaran ke server: ${error.message}`);
+        }
+        if (existingIndex >= 0) {
+          submissions[existingIndex] = record;
+        } else {
+          submissions.push(record);
+        }
+        localStorage.setItem('ruqami_submissions', JSON.stringify(submissions));
+        localStorage.setItem('ruqami_submission_finalized', 'true');
+        await updateQuotaStatus();
+        updateRegistrationLock();
+      }
+
+      function restoreFormData() {
+        const saved = localStorage.getItem(formKey);
+        if (!saved) return;
+
+        try {
+          const data = JSON.parse(saved);
+          for (const [key, value] of Object.entries(data)) {
+            const input = document.querySelector(`[name="${key}"]`);
+            if (input) input.value = value;
+          }
+        } catch (error) {
+          console.warn('Gagal memuat data formulir yang tersimpan.', error);
+        }
+      }
+
+      function showError(fieldName, message) {
+        const errorNode = document.querySelector(`[data-error-for="${fieldName}"]`);
+        if (errorNode) errorNode.textContent = message;
+      }
+
+      function clearError(fieldName) {
+        showError(fieldName, '');
+      }
+
+      function validateField(name, value) {
+        const trimmed = String(value || '').trim();
+        if (!trimmed) {
+          return `${fieldMap[name]} wajib diisi.`;
+        }
+
+        if (name === 'lokasi' && trimmed === 'Aceh Tengah' && form.elements.jenisKelamin.value === 'Laki-laki') {
+          return 'Lokasi Aceh Tengah khusus pendaftar perempuan.';
+        }
+        if (name === 'jenisKelamin' && form.elements.lokasi.value === 'Aceh Tengah' && trimmed === 'Laki-laki') {
+          return 'Pendaftar laki-laki tidak diterima di lokasi Aceh Tengah.';
+        }
+
+        if ((name === 'waCalon' || name === 'waOrtu') && !/^\+?[0-9\s-]{8,}$/.test(trimmed)) {
+          return 'Nomor WhatsApp tidak valid.';
+        }
+
+        return '';
+      }
+
+      function validateForm() {
+        const formData = new FormData(form);
+        let isValid = true;
+
+        Object.keys(fieldMap).forEach((key) => {
+          const value = formData.get(key) || '';
+          const error = validateField(key, value);
+          if (error) {
+            showError(key, error);
+            isValid = false;
+          } else {
+            clearError(key);
+          }
+        });
+
+        return isValid;
+      }
+
+      function updateLocationOptions() {
+        const locationSelect = form.elements.lokasi;
+        const acehTengahOption = [...locationSelect.options].find((option) => option.value === 'Aceh Tengah');
+        const maleApplicant = form.elements.jenisKelamin.value === 'Laki-laki';
+
+        if (!acehTengahOption) return;
+        acehTengahOption.disabled = maleApplicant;
+        acehTengahOption.textContent = maleApplicant
+          ? '2. Aceh Tengah — khusus perempuan (tidak tersedia)'
+          : '2. Aceh Tengah — Siswa Pr: Asrama ✓; Lk tidak diterima';
+
+        if (maleApplicant && locationSelect.value === 'Aceh Tengah') {
+          locationSelect.value = '';
+          showError('lokasi', 'Lokasi Aceh Tengah khusus pendaftar perempuan.');
+        }
+      }
+
+      form.elements.jenisKelamin.addEventListener('change', () => {
+        updateLocationOptions();
+        saveFormData();
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (getCurrentSubmission()) {
+          updateRegistrationLock();
+          alert('Data pendaftaran sudah tersimpan dan dikunci. Hubungi admin jika perlu mengubahnya.');
+          return;
+        }
+
+        try {
+          const count = await getRegistrationCount();
+          if (count >= maxSubmissions && !isCurrentRegistrationAlreadySubmitted()) {
+            await updateQuotaStatus();
+            alert('KUOTA SUDAH FULL. Pendaftaran baru tidak dapat dilanjutkan.');
+            return;
+          }
+        } catch (error) {
+          alert(error.message);
+          return;
+        }
+
+        if (!validateForm()) {
+          return;
+        }
+
+        saveFormData();
+        document.getElementById('upload').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      form.addEventListener('input', () => {
+        saveFormData();
+      });
+
+      form.addEventListener('change', () => {
+        saveFormData();
+      });
+
+      function updateStatus(row, statusClass, text) {
+        const statusNode = row.querySelector('.status-pill');
+        if (statusNode) {
+          statusNode.className = `status-pill ${statusClass}`;
+          statusNode.textContent = text;
+        }
+      }
+
+      function validateFile(file, rowKey) {
+        const allowedTypes = {
+          foto: ['image/jpeg', 'image/png'],
+          kk: ['image/jpeg', 'image/png', 'application/pdf'],
+          akta: ['image/jpeg', 'image/png', 'application/pdf'],
+          ijazah: ['image/jpeg', 'image/png', 'application/pdf'],
+          pembayaran: ['image/jpeg', 'image/png', 'application/pdf'],
+          kesehatan: ['image/jpeg', 'image/png', 'application/pdf'],
+          bpjs: ['image/jpeg', 'image/png', 'application/pdf']
+        };
+
+        const maxSizes = {
+          foto: 1048576,
+          kk: 2097152,
+          akta: 2097152,
+          ijazah: 2097152,
+          pembayaran: 2097152,
+          kesehatan: 2097152,
+          bpjs: 2097152
+        };
+
+        const rowAllowed = allowedTypes[rowKey] || [];
+        const rowMax = maxSizes[rowKey] || 2097152;
+
+        if (!file) {
+          return 'Pilih file terlebih dahulu.';
+        }
+
+        if (!rowAllowed.includes(file.type)) {
+          return 'Format file tidak sesuai. Gunakan JPG, JPEG, PNG, atau PDF.';
+        }
+
+        if (file.size > rowMax) {
+          return `Ukuran file terlalu besar. Maksimal ${Math.round(rowMax / 1024 / 1024)} MB.`;
+        }
+
+        return '';
+      }
+
+      function saveUploadState() {
+        const savedRows = JSON.parse(localStorage.getItem(uploadStateKey) || '[]');
+        const rows = [...document.querySelectorAll('tr[data-row-key]')].map((row) => {
+          const key = row.dataset.rowKey;
+          const filename = row.querySelector('.filename');
+          const status = row.querySelector('.status-pill');
+          const button = row.querySelector('.upload-action');
+          const savedRow = savedRows.find((item) => item.key === key) || {};
+          return {
+            key,
+            fileName: filename ? filename.textContent : '',
+            fileType: savedRow.fileType || '',
+            storagePath: savedRow.storagePath || '',
+            statusText: status ? status.textContent : 'Belum diunggah',
+            statusClass: status ? status.classList.contains('status-success') ? 'status-success' : status.classList.contains('status-ready') ? 'status-ready' : 'status-unuploaded' : 'status-unuploaded',
+            enabled: button ? !button.disabled : false
+          };
+        });
+        localStorage.setItem(uploadStateKey, JSON.stringify(rows));
+      }
+
+      function restoreUploadState() {
+        const saved = localStorage.getItem(uploadStateKey);
+        if (!saved) return;
+
+        try {
+          const rows = JSON.parse(saved);
+          rows.forEach((rowState) => {
+            const row = document.querySelector(`tr[data-row-key="${rowState.key}"]`);
+            if (!row) return;
+            const filename = row.querySelector('.filename');
+            const status = row.querySelector('.status-pill');
+            const button = row.querySelector('.upload-action');
+            const uploadedOnline = Boolean(rowState.storagePath);
+            if (filename) filename.textContent = rowState.fileName;
+            if (status) {
+              status.textContent = uploadedOnline ? 'Berhasil diunggah' : 'Belum diunggah';
+              status.className = `status-pill ${uploadedOnline ? 'status-success' : 'status-unuploaded'}`;
+            }
+            if (button) button.disabled = uploadedOnline || !rowState.enabled;
+          });
+        } catch (error) {
+          console.warn('Gagal memuat status unggahan.', error);
+        }
+      }
+
+      document.addEventListener('change', (event) => {
+        if (!event.target.classList.contains('file-input')) return;
+        if (getCurrentSubmission()) {
+          updateRegistrationLock();
+          alert('Data pendaftaran sudah tersimpan dan dikunci. Hubungi admin jika perlu mengubahnya.');
+          return;
+        }
+
+        const row = event.target.closest('tr');
+        if (!row) return;
+
+        const rowKey = row.dataset.rowKey;
+        const file = event.target.files[0];
+        const filenameNode = row.querySelector('.filename');
+        const uploadButton = row.querySelector('.upload-action');
+
+        if (!file) {
+          if (filenameNode) filenameNode.textContent = 'Belum ada file';
+          updateStatus(row, 'status-unuploaded', 'Belum diunggah');
+          if (uploadButton) uploadButton.disabled = true;
+          saveUploadState();
+          return;
+        }
+
+        const error = validateFile(file, rowKey);
+        if (error) {
+          if (filenameNode) filenameNode.textContent = file.name;
+          updateStatus(row, 'status-ready', 'Siap diunggah');
+          if (uploadButton) uploadButton.disabled = false;
+          alert(error);
+          saveUploadState();
+          return;
+        }
+
+        if (filenameNode) filenameNode.textContent = file.name;
+        updateStatus(row, 'status-ready', 'Siap diunggah');
+        if (uploadButton) uploadButton.disabled = false;
+        saveUploadState();
+      });
+
+      document.addEventListener('click', async (event) => {
+        const uploadButton = event.target.closest('.upload-action');
+        if (uploadButton) {
+          if (getCurrentSubmission()) {
+            updateRegistrationLock();
+            alert('Data pendaftaran sudah tersimpan dan dikunci. Hubungi admin jika perlu mengubahnya.');
+            return;
+          }
+          const row = uploadButton.closest('tr');
+          const input = row.querySelector('.file-input');
+          const file = input.files[0];
+          const rowKey = row.dataset.rowKey;
+
+          if (!file) {
+            alert('Pilih file terlebih dahulu sebelum mengunggah.');
+            return;
+          }
+
+          const error = validateFile(file, rowKey);
+          if (error) {
+            alert(error);
+            return;
+          }
+
+          const registrationId = getRegistrationNumber();
+          const extension = file.type === 'image/jpeg' ? 'jpg' : file.type === 'image/png' ? 'png' : 'pdf';
+          const storagePath = `${registrationId}/${rowKey}-${crypto.randomUUID()}.${extension}`;
+          uploadButton.disabled = true;
+          uploadButton.textContent = 'Mengunggah...';
+          try {
+            const { error: uploadError } = await supabaseClient
+              .storage
+              .from('participant-documents')
+              .upload(storagePath, file, { contentType: file.type, upsert: false });
+            if (uploadError) {
+              throw uploadError;
+            }
+            const savedRows = JSON.parse(localStorage.getItem(uploadStateKey) || '[]')
+              .filter((item) => item.key !== rowKey);
+            savedRows.push({
+              key: rowKey,
+              fileName: file.name,
+              fileType: file.type,
+              storagePath,
+              statusText: 'Berhasil diunggah',
+              statusClass: 'status-success',
+              enabled: false
+            });
+            localStorage.setItem(uploadStateKey, JSON.stringify(savedRows));
+            updateStatus(row, 'status-success', 'Berhasil diunggah');
+            uploadButton.textContent = 'Unggah';
+            uploadButton.disabled = true;
+            saveUploadState();
+          } catch (uploadError) {
+            uploadButton.textContent = 'Unggah';
+            uploadButton.disabled = false;
+            alert(`Gagal mengunggah berkas ke server: ${uploadError.message}`);
+          }
+          return;
+        }
+
+        if (event.target.closest('#continueUpload')) {
+          if (getCurrentSubmission()) {
+            updateRegistrationLock();
+            alert('Data pendaftaran sudah tersimpan dan dikunci. Hubungi admin jika perlu mengubahnya.');
+            return;
+          }
+          const rows = [...document.querySelectorAll('tr[data-row-key]')];
+          const incomplete = rows.some((row) => {
+            if (row.dataset.required === 'false') return false;
+            const status = row.querySelector('.status-pill');
+            return !status || status.textContent !== 'Berhasil diunggah';
+          });
+
+          if (incomplete) {
+            alert('Dokumen wajib belum lengkap. Silakan unggah semua berkas yang diperlukan sebelum melanjutkan.');
+            return;
+          }
+
+          localStorage.setItem('ruqami_upload_complete', 'true');
+          document.getElementById('download').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          renderSummary();
+        }
+      });
+
+      function renderSummary() {
+        const summary = document.getElementById('summaryGrid');
+        const savedForm = JSON.parse(localStorage.getItem(formKey) || '{}');
+        const rows = [
+          ['Nama lengkap', savedForm.nama || '-'],
+          ['Tempat, tanggal lahir', `${savedForm.tempatLahir || '-'}, ${savedForm.tanggalLahir || '-'}`],
+          ['Jenis kelamin', savedForm.jenisKelamin || '-'],
+          ['Alamat', savedForm.alamat || '-'],
+          ['Nomor WhatsApp', savedForm.waCalon || '-'],
+          ['Nama wali', savedForm.namaOrtu || '-'],
+          ['WhatsApp wali', savedForm.waOrtu || '-'],
+          ['Lokasi', savedForm.lokasi || '-'],
+          ['Jenjang', savedForm.jenjang || '-']
+        ];
+
+        summary.innerHTML = rows
+          .map(
+            ([label, value]) => `
+              <div class="summary-item">
+                <small>${label}</small>
+                <strong>${value}</strong>
+              </div>
+            `
+          )
+          .join('');
+
+        const regNumber = document.getElementById('registrationNumber');
+        const number = getRegistrationNumber();
+        regNumber.textContent = number;
+      }
+
+      function generatePdf() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        const savedForm = JSON.parse(localStorage.getItem(formKey) || '{}');
+        const rows = [
+          ['Nama', savedForm.nama || '-'],
+          ['Tempat lahir', savedForm.tempatLahir || '-'],
+          ['Tanggal lahir', savedForm.tanggalLahir || '-'],
+          ['Jenis kelamin', savedForm.jenisKelamin || '-'],
+          ['Alamat', savedForm.alamat || '-'],
+          ['WhatsApp', savedForm.waCalon || '-'],
+          ['Nama wali', savedForm.namaOrtu || '-'],
+          ['WhatsApp wali', savedForm.waOrtu || '-'],
+          ['Lokasi', savedForm.lokasi || '-'],
+          ['Jenjang', savedForm.jenjang || '-']
+        ];
+
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const margin = 16;
+        const contentWidth = pageWidth - margin * 2;
+        const footerY = pageHeight - 15;
+        const registrationNumber = document.getElementById('registrationNumber').textContent;
+        const printedDate = new Intl.DateTimeFormat('id-ID', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }).format(new Date());
+
+        const logo = document.querySelector('.print-proof-header img');
+        if (!logo.complete || !logo.naturalWidth) {
+          throw new Error('Logo RUQAMI belum berhasil dimuat. Silakan muat ulang halaman lalu coba lagi.');
+        }
+
+        doc.setFillColor(221, 170, 36);
+        doc.rect(0, 0, pageWidth, 3, 'F');
+        doc.setFillColor(0, 86, 63);
+        doc.rect(0, 3, pageWidth, 43, 'F');
+        doc.addImage(logo, 'JPEG', margin, 11, 25, 25);
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(19);
+        doc.text('RUQAMI', 48, 20);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        doc.text("Ma'had Rumah Qur'an Al-Amiri", 48, 27);
+        doc.text('Penerimaan Santri Baru', 48, 33);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.text('BUKTI PENDAFTARAN', pageWidth - margin, 20, { align: 'right' });
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.text('DOKUMEN SEMENTARA', pageWidth - margin, 27, { align: 'right' });
+
+        doc.setTextColor(0, 86, 63);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(15);
+        doc.text('BUKTI PENDAFTARAN SANTRI BARU', margin, 61);
+        doc.setTextColor(106, 115, 111);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.5);
+        doc.text('Simpan bukti ini dan gunakan nomor pendaftaran untuk keperluan konfirmasi.', margin, 68);
+
+        doc.setFillColor(246, 240, 221);
+        doc.setDrawColor(221, 170, 36);
+        doc.roundedRect(margin, 76, contentWidth, 17, 2, 2, 'FD');
+        doc.setTextColor(106, 115, 111);
+        doc.setFontSize(8);
+        doc.text('NOMOR PENDAFTARAN', margin + 5, 82);
+        doc.setTextColor(0, 86, 63);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.text(registrationNumber, margin + 5, 88);
+        doc.setTextColor(106, 115, 111);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.text(`Tanggal cetak: ${printedDate}`, pageWidth - margin - 5, 86, { align: 'right' });
+
+        doc.setTextColor(0, 86, 63);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text('DATA PENDAFTAR', margin, 104);
+        let y = 110;
+        const labelWidth = 43;
+        const valueX = margin + labelWidth;
+        const valueWidth = contentWidth - labelWidth - 5;
+        const bottomY = footerY - 12;
+        let rowIndex = 0;
+
+        const drawContinuationHeading = () => {
+          doc.setTextColor(0, 86, 63);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(10);
+          doc.text('DATA PENDAFTAR (LANJUTAN)', margin, 20);
+          doc.setDrawColor(221, 170, 36);
+          doc.line(margin, 24, pageWidth - margin, 24);
+          y = 30;
+        };
+
+        rows.forEach(([label, rawValue]) => {
+          const value = String(rawValue);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          const valueLines = doc.splitTextToSize(value, valueWidth);
+          const rowHeight = Math.max(13, valueLines.length * 4.5 + 7);
+
+          if (y + rowHeight > bottomY) {
+            doc.addPage();
+            drawContinuationHeading();
+          }
+
+          if (rowIndex % 2 === 0) {
+            doc.setFillColor(244, 248, 246);
+            doc.rect(margin, y, contentWidth, rowHeight, 'F');
+          }
+          doc.setTextColor(72, 84, 79);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(8.5);
+          doc.text(label, margin + 4, y + 6);
+          doc.setTextColor(28, 43, 39);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          doc.text(valueLines, valueX, y + 6);
+          doc.setDrawColor(225, 233, 229);
+          doc.line(margin, y + rowHeight, pageWidth - margin, y + rowHeight);
+          y += rowHeight;
+          rowIndex += 1;
+        });
+
+        const pageCount = doc.internal.getNumberOfPages();
+        for (let page = 1; page <= pageCount; page += 1) {
+          doc.setPage(page);
+          doc.setDrawColor(0, 86, 63);
+          doc.line(margin, footerY - 7, pageWidth - margin, footerY - 7);
+          doc.setTextColor(106, 115, 111);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(7);
+          doc.text(
+            'Bukti pendaftaran sementara; data belum diverifikasi secara resmi oleh pihak RUQAMI.',
+            margin,
+            footerY - 2
+          );
+          doc.text(`Halaman ${page} dari ${pageCount}`, pageWidth - margin, footerY - 2, { align: 'right' });
+        }
+
+        doc.save('bukti-pendaftaran-ruqami.pdf');
+      }
+
+      document.getElementById('downloadPdf').addEventListener('click', () => {
+        if (!localStorage.getItem('ruqami_submission_finalized')) {
+          alert('Tekan “Selesaikan Pendaftaran” terlebih dahulu sebelum mengunduh bukti.');
+          return;
+        }
+        try {
+          generatePdf();
+        } catch (error) {
+          alert(`Bukti pendaftaran gagal dibuat: ${error.message || error}`);
+        }
+      });
+
+      document.getElementById('printProof').addEventListener('click', () => {
+        if (!localStorage.getItem('ruqami_submission_finalized')) {
+          alert('Tekan “Selesaikan Pendaftaran” terlebih dahulu sebelum mencetak bukti pendaftaran.');
+          return;
+        }
+        window.print();
+      });
+
+      document.getElementById('clearRegistrationForm').addEventListener('click', () => {
+        [
+          formKey,
+          uploadStateKey,
+          'ruqami_current_registration_number',
+          'ruqami_submission_finalized',
+          'ruqami_upload_complete'
+        ].forEach((key) => localStorage.removeItem(key));
+
+        form.reset();
+        document.querySelectorAll('.error-text').forEach((node) => {
+          node.textContent = '';
+        });
+        document.querySelectorAll('tr[data-row-key]').forEach((row) => {
+          const fileInput = row.querySelector('.file-input');
+          const filename = row.querySelector('.filename');
+          const uploadButton = row.querySelector('.upload-action');
+          if (fileInput) fileInput.value = '';
+          if (filename) filename.textContent = 'Belum ada file';
+          if (uploadButton) uploadButton.disabled = true;
+          updateStatus(row, 'status-unuploaded', 'Belum diunggah');
+        });
+
+        const continueButton = document.getElementById('continueUpload');
+        if (continueButton) continueButton.disabled = false;
+        document.querySelector('.confirmation-title').textContent = 'Pendaftaran berhasil disiapkan';
+        document.querySelector('.confirmation-subtext').textContent =
+          'Lengkapi formulir dan unggah semua berkas agar pendaftaran tersimpan secara online.';
+        renderSummary();
+        updateRegistrationLock();
+        alert('Formulir dan status unggahan berhasil dikosongkan. Data pendaftar yang sudah tersimpan di admin tetap aman.');
+      });
+
+      document.getElementById('finishRegistration').addEventListener('click', async () => {
+        if (getCurrentSubmission()) {
+          updateRegistrationLock();
+          alert('Pendaftaran ini sudah selesai dan tersimpan. Data hanya dapat diubah setelah admin menghapusnya.');
+          return;
+        }
+
+        if (!localStorage.getItem('ruqami_upload_complete')) {
+          alert('Selesaikan formulir dan unggah berkas terlebih dahulu.');
+          return;
+        }
+
+        try {
+          await saveSubmissionRecord();
+          document.querySelector('.confirmation-title').textContent = 'Pendaftaran berhasil disimpan';
+          document.querySelector('.confirmation-subtext').textContent =
+            'Data pendaftaran dan berkas berhasil tersimpan secara online dan dapat dilihat oleh admin.';
+          alert('Pendaftaran selesai. Data dan berkas sudah tersimpan online dan dapat dilihat oleh admin.');
+        } catch (error) {
+          alert(error.message || 'Pendaftaran gagal disimpan. Silakan coba lagi.');
+        }
+      });
+
+      restoreFormData();
+      updateLocationOptions();
+      updateRegistrationLock();
+      restoreUploadState();
+      renderSummary();
+      setActiveNav();
+      window.addEventListener('scroll', setActiveNav);
+      window.addEventListener('storage', (event) => {
+        if (event.key === 'ruqami_submissions' || event.key === null) {
+          updateQuotaStatus().catch((error) => {
+            document.getElementById('registrationQuotaNotice').textContent = error.message;
+          });
+          updateRegistrationLock();
+        }
+      });
+      updateQuotaStatus().catch((error) => {
+        document.getElementById('registrationQuotaNotice').textContent = error.message;
+      });
+    </script>
+  </body>
+</html>
